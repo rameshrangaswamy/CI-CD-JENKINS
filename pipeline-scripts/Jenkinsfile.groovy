@@ -8,7 +8,7 @@ node("NODE_LABEL")
 
 {
 
-def mavenHome = tool 'maven'
+def mavenHome = tool 'M2_HOME'
 
 def stageName
 
