@@ -36,6 +36,8 @@ def SSH_USER_NAME
 
 def DEPLOY_HOST
 
+def readProperties
+
 		/** Stage to git clone adn setup environment in jenkins workspace   */	
 	stage('Git clone and setup')
 	{
