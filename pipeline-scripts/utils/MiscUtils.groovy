@@ -338,11 +338,11 @@ String buildNum = currentBuild.number.toString()
             #!/bin/bash
 			sshpass -p $Jenkinspass ssh $SSH_USER_NAME@$DEPLOY_HOST
 			
-			sshpass -p $Jenkinspass scp -r -v -o 'StrictHostKeyChecking no' $WORKSPACE/${packageName}/target/libs-snapshot-local/${packageName}-b${buildNum}.tar $SSH_USER_NAME@$DEPLOY_HOST:~/apache-tomcat-8.5.43/webapps/ 
+			sshpass -p $Jenkinspass scp -r -v -o 'StrictHostKeyChecking no' $WORKSPACE/${packageName}/target/libs-snapshot-local/${packageName}-b${buildNum}.tar $SSH_USER_NAME@$DEPLOY_HOST:~/apache-tomcat-8.5.47/webapps/ 
 			
-			sshpass -p $Jenkinspass ssh $SSH_USER_NAME@$DEPLOY_HOST tar -xvf ~/apache-tomcat-8.5.43/webapps/${packageName}-b${buildNum}.tar --directory ~/apache-tomcat-8.5.43/webapps; rm -rf ~/apache-tomcat-8.5.43/webapps/${packageName}-b${buildNum}.tar
+			sshpass -p $Jenkinspass ssh $SSH_USER_NAME@$DEPLOY_HOST tar -xvf ~/apache-tomcat-8.5.47/webapps/${packageName}-b${buildNum}.tar --directory ~/apache-tomcat-8.5.47/webapps; rm -rf ~/apache-tomcat-8.5.43/webapps/${packageName}-b${buildNum}.tar
 			
-			sshpass -p $Jenkinspass ssh $SSH_USER_NAME@$DEPLOY_HOST screen -dm -S testing "~/apache-tomcat-8.5.43/webapps/./script.sh ${packageName}"
+			sshpass -p $Jenkinspass ssh $SSH_USER_NAME@$DEPLOY_HOST screen -dm -S testing "~/apache-tomcat-8.5.47/webapps/./script.sh ${packageName}"
 			
 			[ \$? -ne 0 ] && exit 1
 			
