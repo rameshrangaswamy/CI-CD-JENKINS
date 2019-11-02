@@ -230,9 +230,10 @@ def DEPLOY_HOST
 					withSonarQubeEnv('SonarDemo')
 					{
 						//sh "'${mavenHome}/bin/mvn' sonar:sonar"
-						sh "${mavenHome}/bin/mvn -Dsonar.branch.name=${sonarBranchName} sonar:sonar"
+						//sh "${mavenHome}/bin/mvn -Dsonar.branch.name=${sonarBranchName} sonar:sonar"
 						//-Dsonar.host.url=http://35.200.203.119:9000 \
 						//-Dsonar.login=bc7ed6c23eabd5e5001bcc733194bf9925c85efc"
+						sh "'${mavenHome}/bin/mvn' sonar:sonar -Dsonar.host.url=http://35.200.146.219:9000 -Dsonar.login=929efb92cabf4a8706dc633f3310e0d299a94360"
 					}
 			
 					Logger.info("Waiting for SonarQube Quality evaluation response")
