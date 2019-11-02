@@ -333,7 +333,7 @@ def extractInts(input)
 //Function to copy the package to installer,untar the package and remove the .tar file
 def copyPackageToHost(packageName,SSH_USER_NAME,DEPLOY_HOST) {
 String buildNum = currentBuild.number.toString()
-	withCredentials([string(credentialsId: 'artifact-machine', variable: 'Jenkinspass')]) {
+	withCredentials([string(credentialsId: 'SSH-DEPLOY', variable: 'Jenkinspass')]) {
         sh """
             #!/bin/bash
 			sshpass -p $Jenkinspass ssh $SSH_USER_NAME@$DEPLOY_HOST
